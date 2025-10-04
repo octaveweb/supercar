@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+:root {
+
+    --light: #fff;
+    --dark: #000;
+
+    --font-logo: "Shadows Into Light", cursive;
+    --font-pry: "Ubuntu", sans-serif;
+
+    --animation-primary: all .5s cubic-bezier(.7, 0, .3, 1);
+}
+
+.hov-tag {
+    position: relative;
+    /* background-color: #ff0000; */
+}
+
+.hov-tag::before {
+    content: "";
+    height: 1.5px;
+    width: 0%;
+    background-color: var(--dark);
+    position: absolute;
+    top: 100%;
+    border-radius: 50px;
+    transition: var(--animation-primary);
+}
+
+.hov-tag:hover::before {
+    width: 100%;
+}
+
+
+
+nav {
+    /* height: 10vh; */
+    padding: 1.5vw 2vw;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-pry);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+nav .logo {
+    font-size: 2vw;
+    font-weight: 700;
+    font-family: var(--font-logo);
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    font-size: 1vw;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 2em;
+    cursor: pointer;
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+}
+.section svg{
+    position: relative;
+    z-index: 2;
+    top: 5vw;
+    mix-blend-mode: exclusion;
+   transform: scale(2); 
+}
+.video-con{
+    position: absolute;
+    top: 8vw;
+    left: 15vw;
+}
+.video-con video{
+    height: 25vw;
+}
+
+.allvid {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#v1 { animation: fadeVideo 9s infinite; }
+#v2 { animation: fadeVideo 9s infinite; animation-delay: 3s; }
+#v3 { animation: fadeVideo 9s infinite; animation-delay: 6s; }
+
+@keyframes fadeVideo {
+    0%, 33% { opacity: 1; }
+    34%, 100% { opacity: 0; }
+}
+
+
+.btn{
+    padding: .5vw 1vw;
+    font-size: 1vw;
+    font-family: var(--font-pry);
+    border-radius: 50vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.btn::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: var(--animation-primary);
+    border-radius: 100%;
+}
+.btn p{
+    transition: var(--animation-primary);
+    position: relative;
+    z-index: 10;
+    color: var(--dark);
+}
+.btn:hover > p {
+    color: var(--light);
+}
+.btn:hover::before{
+    border-radius:0%;
+    top: 0;
+}
